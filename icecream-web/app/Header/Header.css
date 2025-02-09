@@ -1,0 +1,43 @@
+#header-component {
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #eee060;
+    padding: 0px 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+    font-family: "Poppins", serif;
+}
+
+#logo-container {
+    display: flex;
+    align-items: center;
+}
+  
+#logo-container img {
+    width: 40px; 
+    height: auto;
+    margin-right: 10px;
+}
+
+#logo-container h1 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #3e1755; 
+}
+  
+#get-started-btn {
+    background-color: #b8ecce; 
+    color: #3e1755; 
+    font-weight: bold;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+}
+  
+#get-started-btn:hover {
+    background-color: #9AE6B4; 
+}

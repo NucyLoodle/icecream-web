@@ -1,0 +1,25 @@
+#footer-component {
+    width: 100%;
+    display:flex;
+    background-color: #eab2bb; 
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-top: 3px solid #b8ecce; 
+    font-family: "Poppins", serif;
+    position:absolute;
+    left:0;
+    bottom:0;
+    right:0;
+}
+
+#contact-me {
+    display: flex;
+    gap: 15px; 
+}
+
+#contact-me icon {
+    width: 25px; 
+    height: auto;
+    cursor: pointer;
+}
