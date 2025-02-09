@@ -1,0 +1,59 @@
+#landing-page-component {
+  display:flex;
+  flex-direction: column;
+  min-height: 100%;
+  background-color: #eab2bb;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+#lp-content-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 80%;
+}
+
+#lp-question-header {
+  font-family: "Alfa Slab One", serif;
+  color: #3c6ca8;
+  font-weight: 300;
+  text-align: center;
+  font-size: 4em;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+#lp-main-content img {
+  width: 45%;
+  max-width: 400px;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between; 
+  gap: 20px;
+}
+
+#lp-text-content {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  font-family: "Poppins", serif;
+  color: #3c6ca8;
+}
+
+#lp-main-content {
+  display: flex;
+  flex-direction: row;
+}
+
+#lp-get-started {
+  text-decoration-color:#eee060;
+  width:fit-content;
+}
+
+#lp-get-started:visited {
+  color: #3c6ca8;
+}

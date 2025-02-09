@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
 
+
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import { config } from '@fortawesome/fontawesome-svg-core';
 config.autoAddCss = false;
@@ -25,14 +26,14 @@ export const metadata = {
 export default function Layout({ children }) {
   return (
     <html lang="en" className={poppins.className}>
-      <body>
-        <div className="layout-container">
-          <Header />
-          <main className="content-container">
-            {children}
+      <body>          
+          <main className="content-container">  
+            <Header />
+            <div className="children-container">
+              {children}
+            </div>
+            <Footer />
           </main>
-          <Footer />
-        </div>
       </body>
     </html>
    
