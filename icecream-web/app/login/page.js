@@ -15,13 +15,13 @@ function LoginPage() {
                         </div>
                         <div id='lg-login-form-container'>
                             <form id='lg-login-form'>
-                                <label htmlFor='email'>Email:</label>
-                                <input type='text' id='lg-email' name='email' placeholder='Email' required></input>
-                                <label htmlFor='password'>Password:</label>
-                                <input type='password' id='lg-password' name='password' placeholder='Password' required></input>
-                                <div id="remember-me-container">  
+                                <label htmlFor='lg-email'>Email:</label>
+                                <input type='text' id='lg-email' name='email' placeholder='Email' required autoComplete='email'></input>
+                                <label htmlFor='lg-password'>Password:</label>
+                                <input type='lg-password' id='lg-password' name='password' placeholder='Password' required></input>
+                                <div id="lg-remember-me-container">  
                                     <input type="checkbox" id="lg-remember-me" name="remember-me"></input>
-                                    <label htmlFor="remember-me">Remember me?</label>
+                                    <label htmlFor="lg-remember-me">Remember me?</label>
                                 </div>
                                 <button id='lg-submit-login-button'>Login</button>
                             </form>
