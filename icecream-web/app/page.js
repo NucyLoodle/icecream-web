@@ -20,7 +20,7 @@ function LandingPage() {
 
                                 <Link
                                   href="/login"
-                                  id="lp-get-started">
+                                  id="lp-get-started-text">
                                     Let's get started!
                                 </Link>
                                 
