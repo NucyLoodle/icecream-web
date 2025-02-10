@@ -40,10 +40,10 @@ main {
   margin: 0;
 }
 
-a {
+/* a {
   color: inherit;
   text-decoration: none;
-}
+} */
 
 /* @media (prefers-color-scheme: dark) {
   html {
