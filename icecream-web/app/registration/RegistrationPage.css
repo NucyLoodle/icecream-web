@@ -1,0 +1,81 @@
+#rg-registration-page-component {
+    display:flex;
+    flex-direction: column;
+    flex: 1;
+    background-color: #eab2bb;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    font-family: "Poppins", serif;
+    
+}
+
+#rg-registration-form-container{
+    display: flex;
+    flex-direction: column;
+    background-color: #eee060;
+    padding: 20px;
+    border-radius: 15px;
+    width: 320px;
+    text-align: center;
+}
+
+#rg-login-register-button-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+#rg-login-register-button-container button {
+    width: 50%;
+    padding: 15px;
+    border: none;
+    border-radius: 15px 15px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#rg-login-button {
+    background-color: #b8ecce
+}
+
+#rg-register-button {
+    background-color: #eee060;
+}
+
+#rg-registration-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#rg-registration-form label {
+    font-size: 14px;
+    font-weight: normal;
+    text-align: left;
+    width: 100%;
+    display: block;
+    padding-left: 5%;
+}
+
+#rg-registration-form input {
+    width: 90%;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 10px;
+    border: none;
+    background-color: #eab2bb;
+    display: block;
+    margin-left: 5%;    
+}
+
+#rg-registration-form input[type="submit"]{ 
+    background-color: #da8558;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+

@@ -20,6 +20,9 @@ importers:
       '@fortawesome/react-fontawesome':
         specifier: ^0.2.2
         version: 0.2.2(@fortawesome/fontawesome-svg-core@6.7.2)(react@19.0.0)
+      '@hookform/error-message':
+        specifier: ^2.0.1
+        version: 2.0.1(react-dom@19.0.0(react@19.0.0))(react-hook-form@7.54.2(react@19.0.0))(react@19.0.0)
       next:
         specifier: 15.1.6
         version: 15.1.6(@babel/core@7.26.8)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -315,6 +318,13 @@ packages:
     peerDependencies:
       '@fortawesome/fontawesome-svg-core': ~1 || ~6
       react: '>=16.3'
+
+  '@hookform/error-message@2.0.1':
+    resolution: {integrity: sha512-U410sAr92xgxT1idlu9WWOVjndxLdgPUHEB8Schr27C9eh7/xUnITWpCMF93s+lGiG++D4JnbSnrb5A21AdSNg==}
+    peerDependencies:
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+      react-hook-form: ^7.0.0
 
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
@@ -3389,6 +3399,12 @@ snapshots:
       '@fortawesome/fontawesome-svg-core': 6.7.2
       prop-types: 15.8.1
       react: 19.0.0
+
+  '@hookform/error-message@2.0.1(react-dom@19.0.0(react@19.0.0))(react-hook-form@7.54.2(react@19.0.0))(react@19.0.0)':
+    dependencies:
+      react: 19.0.0
+      react-dom: 19.0.0(react@19.0.0)
+      react-hook-form: 7.54.2(react@19.0.0)
 
   '@humanfs/core@0.19.1': {}
 
