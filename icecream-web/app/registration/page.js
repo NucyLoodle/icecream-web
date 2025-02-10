@@ -67,7 +67,7 @@ function RegistrationPage() {
                         />
                         <ErrorMessage errors={errors} name="confirmPassword" render={({ message }) => <p className="error">{message}</p>} />
 
-                        <input id='rg-submit-register-button' type="submit" />
+                        <button id='rg-submit-register-button' type="submit">Register</button>
                     </form>
                 </div>
             </div>

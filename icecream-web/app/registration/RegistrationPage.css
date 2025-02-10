@@ -68,7 +68,7 @@
     margin-left: 5%;    
 }
 
-#rg-registration-form input[type="submit"]{ 
+#rg-submit-register-button{ 
     background-color: #da8558;
     border: none;
     padding: 10px 15px;
