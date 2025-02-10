@@ -1,0 +1,111 @@
+#login-page-component {
+    display:flex;
+    flex-direction: column;
+    flex: 1;
+    background-color: #eab2bb;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    font-family: "Poppins", serif;
+    
+}
+
+#login-form-container{
+    display: flex;
+    flex-direction: column;
+    background-color: #eee060;
+    padding: 20px;
+    border-radius: 15px;
+    width: 320px;
+    text-align: center;
+}
+
+#login-register-button-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+#login-register-button-container button {
+    width: 50%;
+    padding: 15px;
+    border: none;
+    border-radius: 15px 15px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#login-button {
+    background-color: #eee060
+}
+
+#register-button {
+    background-color: #b8ecce;
+}
+
+#login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#login-form label {
+    font-size: 14px;
+    font-weight: normal;
+    text-align: left;
+    width: 100%;
+    display: block;
+    padding-left: 5%;
+}
+
+#login-form input {
+    width: 90%;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 10px;
+    border: none;
+    background-color: #eab2bb;
+    display: block;
+    margin-left: 5%;    
+}
+
+#login-form button {
+    background-color: #da8558;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#remember-me-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 14px;
+    margin: 10px 0;
+    width: 100%;
+    padding-left: 5%;
+}
+
+#remember-me {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    margin-right: 8px;
+    display: inline-block;
+}
+
+#remember-me-label {
+    font-size: 14px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#login-form input[type="checkbox"]{   
+    width: fit-content;
+    margin: 3px;
+    height: 16px;
+    cursor: pointer;
+}
