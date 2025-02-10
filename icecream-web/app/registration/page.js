@@ -20,7 +20,7 @@ function RegistrationPage() {
                 <div id='rg-registration-form-container'>
                     <form id='rg-registration-form' onSubmit={handleSubmit(onSubmit)}  noValidate>
                         {/* Email */}
-                        <label>Email:</label>
+                        <label htmlFor='rg-email'>Email:</label>
                         <input
                             id='rg-email'
                             type='email'
@@ -36,7 +36,7 @@ function RegistrationPage() {
                         <ErrorMessage errors={errors} name="email" render={({ message }) => <p className="error">{message}</p>} />
 
                         {/* Password */}
-                        <label>Password:</label>
+                        <label htmlFor='rg-password'>Password:</label>
                         <input
                             id='rg-password'
                             type='password'
@@ -50,7 +50,7 @@ function RegistrationPage() {
                         <ErrorMessage errors={errors} name="password" render={({ message }) => <p className="error">{message}</p>} />
 
                         {/* Confirm Password */}
-                        <label>Confirm Password:</label>
+                        <label htmlFor='rg-confirm-password'>Confirm Password:</label>
                         <input
                             id='rg-confirm-password'
                             type='password'
@@ -67,7 +67,7 @@ function RegistrationPage() {
                         />
                         <ErrorMessage errors={errors} name="confirmPassword" render={({ message }) => <p className="error">{message}</p>} />
 
-                        <button id='rg-submit-register-button' type="submit">Register</button>
+                        <button id='rg-submit-register-button' type="submit" data-testid="submit-button">Register</button>
                     </form>
                 </div>
             </div>
