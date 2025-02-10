@@ -24,7 +24,7 @@ function LoginPage() {
                             <form id='lg-login-form' onSubmit={handleSubmit(onSubmit)} noValidate>
                                 <label htmlFor='lg-email'>Email:</label>
                                 <input
-                                    id='rg-email'
+                                    id='lg-email'
                                     type='email'
                                     placeholder="someone@email.com"
                                     {...register("email", {
@@ -41,7 +41,7 @@ function LoginPage() {
 
                                 <label htmlFor='lg-password'>Password:</label>
                                     <input
-                                        id='rg-password'
+                                        id='lg-password'
                                         type='password'
                                         placeholder='Password'
                                         {...register("password", {
