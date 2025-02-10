@@ -34,6 +34,7 @@ function LoginPage() {
                                             message: "Invalid email format."
                                         }
                                     })}
+                                    autoComplete="email"
                                 />
                                 <ErrorMessage errors={errors} name="email" render={({ message }) => <p className="error">{message}</p>} />
                                 
