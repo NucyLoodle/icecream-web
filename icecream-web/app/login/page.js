@@ -1,4 +1,5 @@
 import './LoginPage.css';
+import Link from 'next/link';
 
 function LoginPage() {
     return(
@@ -6,7 +7,11 @@ function LoginPage() {
                     <div id='login-content-container'>
                         <div id='login-register-button-container'>
                             <button id='login-button'>Login</button>
-                            <button id='register-button'>Register</button>
+                            <button id='register-button'>
+                                <Link href='/registration'>
+                                    Register
+                                </Link>
+                            </button>
                         </div>
                         <div id='login-form-container'>
                             <form id='login-form'>
