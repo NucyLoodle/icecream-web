@@ -1,4 +1,4 @@
-#lg-login-page-component {
+#rg-registration-page-component {
     display:flex;
     flex-direction: column;
     flex: 1;
@@ -10,7 +10,7 @@
     
 }
 
-#lg-login-form-container{
+#rg-registration-form-container{
     display: flex;
     flex-direction: column;
     background-color: #eee060;
@@ -20,12 +20,12 @@
     text-align: center;
 }
 
-#lg-login-register-button-container {
+#rg-login-register-button-container {
     display: flex;
     justify-content: space-between;
 }
 
-#lg-login-register-button-container button {
+#rg-login-register-button-container button {
     width: 50%;
     padding: 15px;
     border: none;
@@ -34,21 +34,21 @@
     cursor: pointer;
 }
 
-#lg-login-button {
+#rg-login-button {
+    background-color: #b8ecce
+}
+
+#rg-register-button {
     background-color: #eee060;
 }
 
-#lg-register-button {
-    background-color: #b8ecce;
-}
-
-#lg-login-form {
+#rg-registration-form {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-#lg-login-form label {
+#rg-registration-form label {
     font-size: 14px;
     font-weight: normal;
     text-align: left;
@@ -57,7 +57,7 @@
     padding-left: 5%;
 }
 
-#lg-login-form input {
+#rg-registration-form input {
     width: 90%;
     padding: 10px;
     margin: 5px 0;
@@ -68,7 +68,7 @@
     margin-left: 5%;    
 }
 
-#lg-submit-login-button{
+#rg-submit-register-button{ 
     background-color: #da8558;
     border: none;
     padding: 10px 15px;
@@ -79,33 +79,3 @@
     margin-top: 10px;
 }
 
-#lg-remember-me-container {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    font-size: 14px;
-    margin: 10px 0;
-    width: 100%;
-    padding-left: 5%;
-}
-
-#lg-remember-me {
-    width: 16px;
-    height: 16px;
-    cursor: pointer;
-    margin-right: 8px;
-    display: inline-block;
-}
-
-#lg-remember-me-label {
-    font-size: 14px;
-    display: inline-block;
-    vertical-align: middle;
-}
-
-#lg-login-form input[type="checkbox"]{   
-    width: fit-content;
-    margin: 3px;
-    height: 16px;
-    cursor: pointer;
-}

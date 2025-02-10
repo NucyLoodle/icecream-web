@@ -48,11 +48,12 @@
   flex-direction: row;
 }
 
-#lp-get-started {
+#lp-get-started-text {
+  text-decoration: underline;
   text-decoration-color:#eee060;
   width:fit-content;
 }
 
-#lp-get-started:visited {
+#lp-get-started-text:visited {
   color: #3c6ca8;
 }
