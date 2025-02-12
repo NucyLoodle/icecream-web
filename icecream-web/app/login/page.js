@@ -5,9 +5,16 @@ import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import { ErrorMessage } from "@hookform/error-message";
 
+import { useActionState } from 'react';
+import { authenticate } from '@/app/lib/actions';
+
+
 function LoginPage() {
-    const { register, handleSubmit, formState: { errors } } = useForm({ criteriaMode: "all" });
-    const onSubmit = (data) => console.log(data);
+    const { register, formState: { errors } } = useForm({ criteriaMode: "all" });
+    const [errorMessage, formAction, isPending] = useActionState(
+        authenticate,
+        undefined,
+      );
 
     return(
                 <div id='lg-login-page-component'>
@@ -21,7 +28,9 @@ function LoginPage() {
                             </button>
                         </div>
                         <div id='lg-login-form-container'>
-                            <form id='lg-login-form' onSubmit={handleSubmit(onSubmit)} noValidate>
+                            <form id='lg-login-form' 
+                            action={formAction}                            
+                            noValidate>
                                 <label htmlFor='lg-email'>Email:</label>
                                 <input
                                     id='lg-email'
@@ -59,6 +68,7 @@ function LoginPage() {
                                 </div>
 
                                 <button id='lg-submit-login-button' type="submit">Login</button>
+                                <div>{errorMessage}</div>
                             </form>
                         </div>
                     </div>
