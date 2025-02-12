@@ -7,10 +7,12 @@ import { ErrorMessage } from "@hookform/error-message";
 
 import { useActionState } from 'react';
 import { authenticate } from '@/app/lib/actions';
-
+import { useSearchParams } from 'next/navigation';
 
 function LoginPage() {
     const { register, formState: { errors } } = useForm({ criteriaMode: "all" });
+    const searchParams = useSearchParams();
+    const callbackUrl = searchParams.get('callbackUrl') || '/dashboard';
     const [errorMessage, formAction, isPending] = useActionState(
         authenticate,
         undefined,
@@ -67,7 +69,7 @@ function LoginPage() {
                                     <label htmlFor="lg-remember-me">Remember me?</label>
                                 </div>
 
-                                <button id='lg-submit-login-button' type="submit">Login</button>
+                                <button id='lg-submit-login-button' type="submit" name="redirectTo" value={callbackUrl}>Login</button>
                                 <div>{errorMessage}</div>
                             </form>
                         </div>
