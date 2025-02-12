@@ -26,12 +26,22 @@ export const { signIn, signOut, auth } = NextAuth({
             password: {},    
         },
         authorize: async (credentials) => {
-            
-            // salt and hash the password
-            const hashedPassword = await bcrypt.hash(password, 10)
-            
-            
-        },
+          if (!credentials || !credentials.email || !credentials.password) {
+              return null; // Ensure credentials exist
+          }
+          const email = credentials.email.trim();
+          const password = credentials.password;
+
+          const user = await getUser(email);
+
+          if (!user) return null;
+          const passwordsMatch = await bcrypt.compare(password, user.password);
+  
+          if (passwordsMatch) return user;   
+      
+          console.log('Invalid credentials');
+          return null;
+      },
     }),
   ],
 });
