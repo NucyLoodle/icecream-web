@@ -2,22 +2,11 @@
 
 import './LoginPage.css';
 import Link from 'next/link';
-import { useForm } from 'react-hook-form';
-
 import LoginForm from '@/app/ui/login-form';
-import { Suspense, useActionState } from 'react';
-import { authenticate } from '@/app/lib/actions';
-import { useSearchParams } from 'next/navigation';
+import { Suspense } from 'react';
+
 
 function LoginPage() {
-    const { register, formState: { errors } } = useForm({ criteriaMode: "all" });
-    const searchParams = useSearchParams();
-    const callbackUrl = searchParams.get('callbackUrl') || '/dashboard';
-    const [errorMessage, formAction, isPending] = useActionState(
-        authenticate,
-        undefined,
-      );
-
     return(
                 <div id='lg-login-page-component'>
                     <div id='lg-login-content-container'>

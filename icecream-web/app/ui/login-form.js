@@ -1,6 +1,19 @@
 import { ErrorMessage } from "@hookform/error-message";
+import { authenticate } from '@/app/lib/actions';
+import { useSearchParams } from 'next/navigation';
+import { useForm } from 'react-hook-form';
+import { useActionState } from 'react';
+
+
 
 export default function LoginForm() {
+        const { register, formState: { errors } } = useForm({ criteriaMode: "all" });
+        const searchParams = useSearchParams();
+        const callbackUrl = searchParams.get('callbackUrl') || '/dashboard';
+        const [errorMessage, formAction, isPending] = useActionState(
+            authenticate,
+            undefined,
+          );
     return (
     <form id='lg-login-form' 
         action={formAction}                            
