@@ -2,7 +2,9 @@ import './Header.css'
 import Image from 'next/image'
 import Link from 'next/link';
 import logo from '../../public/icecream_logo.png';
-import { getSession } from "@/app/lib/getSession";
+import { getSession } from "../lib/getSession";
+import { signOut } from '@/auth';
+import { deleteSession } from '../lib/session';
 
 export default async function Header() {
     const session = await getSession();
@@ -16,7 +18,18 @@ export default async function Header() {
                 <h1>Ice Cream Tracker</h1>
             </div>
             {isLoggedIn ? (
-                <div>sign out</div> 
+                <form
+                action={async () => {
+                  'use server';
+                  await deleteSession();
+                  await signOut({ redirectTo: '/' });       
+                }}
+              >
+                <button>
+                  
+                    Sign Out
+                </button>
+              </form>
             ) : (
                 <button id="get-started-btn">
                 <Link
