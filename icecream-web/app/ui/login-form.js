@@ -1,6 +1,7 @@
 import { ErrorMessage } from "@hookform/error-message";
 
 export default function LoginForm() {
+    return (
     <form id='lg-login-form' 
         action={formAction}                            
         noValidate>
@@ -43,4 +44,5 @@ export default function LoginForm() {
             <button id='lg-submit-login-button' type="submit" name="redirectTo" value={callbackUrl}>Login</button>
             <div>{errorMessage}</div>
         </form>
+        );  
     }
