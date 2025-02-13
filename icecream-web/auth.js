@@ -3,6 +3,7 @@ import { authConfig } from "./auth.config";
 import Credentials from "next-auth/providers/credentials"
 import bcrypt from "bcryptjs";
 import postgres from "postgres";
+import { createSession } from '@/app/lib/session'
 
 const sql = postgres(process.env.POSTGRES_URL, { ssl: 'require' });
 
@@ -37,8 +38,11 @@ export const { signIn, signOut, auth } = NextAuth({
           if (!user) return null;
           const passwordsMatch = await bcrypt.compare(password, user.password);
   
-          if (passwordsMatch) return user;   
-      
+          if (passwordsMatch) {
+            await createSession(user.email)
+            return user;
+               
+          }
           console.log('Invalid credentials');
           return null;
       },
