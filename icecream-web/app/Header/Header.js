@@ -8,7 +8,6 @@ import { deleteSession } from '../lib/session';
 
 export default async function Header() {
     const session = await getSession();
-    console.log(session);
     const isLoggedIn = !!session;
 
     return(
