@@ -1,0 +1,27 @@
+#db-dashboard-component{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5%;
+}
+#db-content-container{
+    display: flex;
+    flex-direction: column;
+    background-color: #b8ecce;
+    width: 80%; 
+    height: auto;
+    /* margin: 0 auto; */
+    padding: 10px;
+    /* position: relative; */
+    border-radius: 15px;
+}
+
+#db-header {
+    font-family: "Alfa Slab One", serif;
+    color: #3c6ca8;
+    font-weight: 300;
+    /* text-align: center; */
+    font-size: 2em;
+    white-space: nowrap;
+    overflow: hidden;
+}
