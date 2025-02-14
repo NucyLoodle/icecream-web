@@ -41,5 +41,4 @@ export async function createSession(userId) {
 export async function deleteSession() {
 const cookieStore = await cookies()
 cookieStore.delete('session')
-console.log("Session cookie deleted"); // Debugging
 }

@@ -8,7 +8,6 @@ import { deleteSession } from '../lib/session';
 
 export default async function Header() {
     const session = await getSession();
-    console.log(session);
     const isLoggedIn = !!session;
 
     return(
@@ -25,8 +24,7 @@ export default async function Header() {
                   await signOut({ redirectTo: '/' });       
                 }}
               >
-                <button>
-                  
+                <button id="header-sign-out-btn">
                     Sign Out
                 </button>
               </form>
