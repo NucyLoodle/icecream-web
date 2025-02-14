@@ -25,8 +25,7 @@ export default async function Header() {
                   await signOut({ redirectTo: '/' });       
                 }}
               >
-                <button>
-                  
+                <button id="header-sign-out-btn">
                     Sign Out
                 </button>
               </form>

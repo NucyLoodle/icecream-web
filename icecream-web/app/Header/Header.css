@@ -40,3 +40,13 @@
 #get-started-btn:hover {
     background-color: #9AE6B4; 
 }
+
+#header-sign-out-btn {
+    background-color: #da8558;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
