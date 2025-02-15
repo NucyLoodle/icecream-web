@@ -1,8 +1,9 @@
+"use client";
+
 import './dashboard.css';
+import DisplayMap from '../lib/map.js';
 
-
-export default function Dashboard() {
-    console.log("logged in")
+export default function Dashboard() {    
     return(
         <div id='db-dashboard-component'>
           <div id='db-content-container'>
@@ -12,7 +13,8 @@ export default function Dashboard() {
 
               </div>
               <div id='db-map-container'>
-
+                <DisplayMap />
+                
               </div>
             </div>
           </div>
