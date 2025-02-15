@@ -10,7 +10,7 @@ export default function Dashboard() {
             <h1 id='db-header'>Vans near me</h1>
             <div id='db-van-info-container'>
               <div id='db-van-list'>
-
+                Sorry, no vans near you. Try again later.
               </div>
               <div id='db-map-container'>
                 <DisplayMap />
