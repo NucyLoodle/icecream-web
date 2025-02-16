@@ -1,4 +1,4 @@
-import Layout from './layout';
+import Layout from '../app/layout';
 
 describe('<Layout />', () => {
   it('renders Header, Footer, and children correctly', () => {
