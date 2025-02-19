@@ -40,3 +40,8 @@ cypress.env.json
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# example cypress tests
+
+/cypress/e2e/1-getting-started/
+/cypress/e2e/2-advanced-examples/
