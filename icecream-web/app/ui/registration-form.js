@@ -24,7 +24,7 @@ export function RegisterForm() {
     );
 
     return (
-        <form id='rg-registration-form' form action={formAction}  noValidate>
+        <form id='rg-registration-form' action={formAction}  noValidate>
                         {/* Email */}
                         <label htmlFor='rg-email'>Email:</label>
                         <input
