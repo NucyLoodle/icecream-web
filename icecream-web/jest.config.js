@@ -25,7 +25,17 @@ const config = {
   collectCoverage: true,
 
   // An array of glob patterns indicating a set of files for which coverage information should be collected
-  // collectCoverageFrom: undefined,
+  collectCoverageFrom: [
+    "**/*.js", // Include all JS/TS files
+    "!**/node_modules/**",  // Exclude dependencies
+    "!**/coverage/**",      // Exclude coverage output
+    "!jest.config.js",      // Exclude Jest config itself
+    "!cypress.config.js",   // Exclude Cypress config
+    "!**/.next/**",            // Exclude Next.js build output
+    "!**/.swc/**",             // Exclude SWC build output
+    "!**/cypress/**",       // Exclude Cypress tests
+    "!app/metadata.js",         // Exclude metadata file
+  ],
 
   // The directory where Jest should output its coverage files
   coverageDirectory: "coverage",

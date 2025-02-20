@@ -25,3 +25,23 @@
     white-space: nowrap;
     overflow: hidden;
 }
+
+
+#db-van-info-container {
+    display: flex;  
+    justify-content: space-between; 
+    align-items: stretch; 
+    width: 100%; 
+  }
+  
+  #db-van-list,
+  #db-map-container {
+    flex: 1;  
+    min-width: 0; 
+  }
+  
+  #db-map-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+  }

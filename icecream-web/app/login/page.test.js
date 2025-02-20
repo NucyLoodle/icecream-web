@@ -1,15 +1,27 @@
 import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
+import LoginPage from '@/app/login/page';
 
+jest.mock('../ui/login-form', () => () => <div data-testid="mock-login-form">Login Form</div>);
 
-import dynamic from 'next/dynamic';
+describe('LoginPage Component', () => {
+  test('renders login and register buttons', () => {
+    render(<LoginPage />);
+    
+    expect(screen.getByText('Login')).toBeInTheDocument();
+    expect(screen.getByText('Register')).toBeInTheDocument();
+  });
 
-const LoginPage = dynamic(() => import('@/app/login'), { ssr: false }); //handle the use client
+  test('register button contains a link to registration page', () => {
+    render(<LoginPage />);
+    
+    const registerLink = screen.getByText('Register').closest('a');
+    expect(registerLink).toHaveAttribute('href', '/registration');
+  });
 
-
-
-describe("login page component", () => {
-    it("renders correctly", () => {
-        render(<LoginPage />);
-        expect(screen).toBeDefined();
-    });
+  test('renders LoginForm component inside Suspense', () => {
+    render(<LoginPage />);
+    
+    expect(screen.getByTestId('mock-login-form')).toBeInTheDocument();
+  });
 });
