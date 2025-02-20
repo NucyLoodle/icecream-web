@@ -1,9 +1,8 @@
 "use client"
 import './RegistrationPage.css';
 import Link from 'next/link';
-import { useForm } from 'react-hook-form';
 import { RegisterForm } from '@/app/ui/registration-form';
-import { ErrorMessage } from "@hookform/error-message";
+import { Suspense } from 'react';
 
 export default function RegistrationPage() {
 
@@ -18,7 +17,9 @@ export default function RegistrationPage() {
                     <button id='rg-register-button'>Register</button>
                 </div>
                 <div id='rg-registration-form-container'>
-                    <RegisterForm />
+                    <Suspense>
+                        <RegisterForm />
+                    </Suspense>
                 </div>
             </div>
         </div>

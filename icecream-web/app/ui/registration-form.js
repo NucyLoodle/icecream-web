@@ -1,15 +1,29 @@
 import { ErrorMessage } from "@hookform/error-message";
-import { authenticate } from '@/app/lib/actions';
-import { useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useForm } from 'react-hook-form';
-import { useActionState } from 'react';
+import { signUp } from "@/app/lib/actions";
 
 export function RegisterForm() {
-    const { register, watch, handleSubmit, formState: { errors } } = useForm({ criteriaMode: "all" });
-    const onSubmit = (data) => console.log(data);
+    const { register, watch, formState: { errors } } = useForm({ criteriaMode: "all" });
+    const router = useRouter();
+    const searchParams = useSearchParams();
+    const callbackUrl = searchParams.get("callbackUrl") || "/dashboard"; 
+
+    async function handleSignUp(formData) {
+        formData.append("redirectTo", callbackUrl); // Attach callback URL
     
+        const result = await signUp(formData);
+    
+        if (result?.error) {
+        //   setError(result.error);
+          console.log(result.error);
+        } else {
+          router.push(result.callbackUrl); // ✅ Redirect to the callback URL
+        }
+      }
+
     return (
-        <form id='rg-registration-form' onSubmit={handleSubmit(onSubmit)}  noValidate>
+        <form id='rg-registration-form' form action={handleSignUp}  noValidate>
                         {/* Email */}
                         <label htmlFor='rg-email'>Email:</label>
                         <input
