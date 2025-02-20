@@ -55,7 +55,7 @@ export default function LoginForm() {
             </div>
 
             <button id='lg-submit-login-button' type="submit" name="redirectTo" value={callbackUrl}>Login</button>
-            <div>{errorMessage}</div>
+            <div id= "lg-error-message">{errorMessage}</div>
         </form>
         );  
     }
