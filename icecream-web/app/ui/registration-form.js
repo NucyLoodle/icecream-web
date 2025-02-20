@@ -1,4 +1,5 @@
 import { ErrorMessage } from "@hookform/error-message";
+import { useActionState } from "react";
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { signUp } from "@/app/lib/actions";
@@ -9,21 +10,21 @@ export function RegisterForm() {
     const searchParams = useSearchParams();
     const callbackUrl = searchParams.get("callbackUrl") || "/dashboard"; 
 
-    async function handleSignUp(formData) {
-        formData.append("redirectTo", callbackUrl); // Attach callback URL
-    
-        const result = await signUp(formData);
-    
-        if (result?.error) {
-        //   setError(result.error);
-          console.log(result.error);
-        } else {
-          router.push(result.callbackUrl); // ✅ Redirect to the callback URL
-        }
-      }
+
+    const [errorMessage, formAction, isPending] = useActionState(
+        async (prevState, formData) => {
+            formData.append("redirectTo", callbackUrl); 
+            const result = await signUp(formData);
+            if (result?.success) {
+                router.push(result.callbackUrl); 
+            }
+            return result?.error || null;
+        },
+        null
+    );
 
     return (
-        <form id='rg-registration-form' form action={handleSignUp}  noValidate>
+        <form id='rg-registration-form' form action={formAction}  noValidate>
                         {/* Email */}
                         <label htmlFor='rg-email'>Email:</label>
                         <input
@@ -73,6 +74,7 @@ export function RegisterForm() {
                         <ErrorMessage errors={errors} name="confirmPassword" render={({ message }) => <p className="rg-confirm-password-error">{message}</p>} />
 
                         <button id='rg-submit-register-button' type="submit" data-testid="submit-button">Register</button>
+                        {errorMessage && <p className="rg-submit-register-form">{errorMessage}</p>}
                     </form>
     )
 }
