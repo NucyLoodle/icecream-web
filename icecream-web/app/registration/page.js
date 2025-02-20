@@ -34,7 +34,7 @@ function RegistrationPage() {
                             })}
                             autoComplete="email"
                         />
-                        <ErrorMessage errors={errors} name="email" render={({ message }) => <p className="error">{message}</p>} />
+                        <ErrorMessage errors={errors} name="email" render={({ message }) => <p className="rg-email-error">{message}</p>} />
 
                         {/* Password */}
                         <label htmlFor='rg-password'>Password:</label>
@@ -48,7 +48,7 @@ function RegistrationPage() {
                                 maxLength: { value: 20, message: "Password must not exceed 20 characters." }
                             })}
                         />
-                        <ErrorMessage errors={errors} name="password" render={({ message }) => <p className="error">{message}</p>} />
+                        <ErrorMessage errors={errors} name="password" render={({ message }) => <p className="rg-password-error">{message}</p>} />
 
                         {/* Confirm Password */}
                         <label htmlFor='rg-confirm-password'>Confirm Password:</label>
@@ -65,7 +65,7 @@ function RegistrationPage() {
                                   },  
                             })}
                         />
-                        <ErrorMessage errors={errors} name="confirmPassword" render={({ message }) => <p className="error">{message}</p>} />
+                        <ErrorMessage errors={errors} name="confirmPassword" render={({ message }) => <p className="rg-confirm-password-error">{message}</p>} />
 
                         <button id='rg-submit-register-button' type="submit" data-testid="submit-button">Register</button>
                     </form>
