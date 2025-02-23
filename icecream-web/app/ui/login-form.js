@@ -7,7 +7,7 @@ import { useActionState } from 'react';
 
 
 export default function LoginForm() {
-        const { register, formState: { errors } } = useForm({ criteriaMode: "all" });
+        const { register, formState: { errors } } = useForm({ criteriaMode: "all", mode: 'onChange' });
         const searchParams = useSearchParams();
         const callbackUrl = searchParams.get('callbackUrl') || '/dashboard';
         const [errorMessage, formAction, isPending] = useActionState(
@@ -26,7 +26,7 @@ export default function LoginForm() {
                 {...register("email", {
                     required: "Email is required.",
                     pattern: {
-                        value: /^\S+@\S+$/i,
+                        value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i,
                         message: "Invalid email format."
                     }
                 })}
