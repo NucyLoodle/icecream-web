@@ -58,6 +58,7 @@
 }
 
 #rg-registration-form input {
+    font-family: "Poppins", serif;
     width: 90%;
     padding: 10px;
     margin: 5px 0;
