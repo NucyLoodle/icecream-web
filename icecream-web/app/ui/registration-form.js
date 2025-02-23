@@ -47,10 +47,10 @@ export function RegisterForm({action}) {
                             {...register("email")}
                             autoComplete="email"
                         />
-                        <p className="rg-email-error">
+                        <div className="rg-email-error">
                           <InputError error={errors.email?.message} />
                           <InputError error={actionState.fieldErrors?.email} />
-                        </p>
+                        </div>
 
                         {/* Password */}
                         <label htmlFor='rg-password'>Password:</label>
@@ -61,10 +61,10 @@ export function RegisterForm({action}) {
                             defaultValue={actionState.formData?.password}
                             {...register("password")}
                         />
-                        <p className="rg-password-error">
+                        <div className="rg-password-error">
                             <InputError error={errors.password?.message} />
                             <InputError error={actionState.fieldErrors?.password} />
-                        </p>
+                        </div>
                         {/* Confirm Password */}
                         <label htmlFor='rg-confirm-password'>Confirm Password:</label>
                         <input
@@ -74,13 +74,15 @@ export function RegisterForm({action}) {
                             defaultValue={actionState.formData?.confirmPassword}
                             {...register("confirmPassword", )}
                         />
-                        <p className="rg-confirm-password-error">
+                        <div className="rg-confirm-password-error">
                             <InputError error={errors.confirmPassword?.message} />
                             <InputError error={actionState.fieldErrors?.confirmPassword} />
-                        </p>
+                        </div>
+                        
                         {actionState.error && (
                         <p className="rg-error-message">{actionState.error}</p>
                         )}
+                        
 
                         <button id='rg-submit-register-button' type="submit" data-testid="submit-button" disabled={isPending}>Register</button>
                         {/* {errorMessage && <p className="rg-submit-register-form">{errorMessage}</p>} */}
