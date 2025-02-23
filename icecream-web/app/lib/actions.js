@@ -4,6 +4,8 @@ import { signIn } from "@/auth";
 import { AuthError } from "next-auth";
 import bcrypt from "bcryptjs";
 import postgres from "postgres";
+import { redirect } from "next/navigation";
+import { signUpFormSchema } from '@/app/lib/definitions'
 
 const sql = postgres(process.env.POSTGRES_URL, { ssl: "require" });
 
@@ -23,22 +25,41 @@ export async function authenticate(prevState, formData) {
   }
 }
 
-export async function signUp(formData) {
-  const name = formData.get("name");
-  const email = formData.get("email");
-  const password = formData.get("password");
-  const callbackUrl = formData.get("redirectTo") || "/login"; // Default to login page
+export async function signUp(_initialState, formData) {
+
+  console.log(formData.entries())
+
+  const form = Object.fromEntries(formData);
+  const validatedFields = signUpFormSchema.safeParse(form);
+
+  // If any form fields are invalid, return early
+	if (!validatedFields.success) {
+	  return {
+      formData: form,
+		  errors: validatedFields.error.flatten().fieldErrors,
+
+	  }
+	}
+
+  // Check if passwords match
+	if (validatedFields.data.password !== validatedFields.data.confirmPassword) {
+		return { formData: form, error: "Passwords don't match." };
+	}
 
   // Check if email already exists
-  const existingUser = await sql`SELECT * FROM users WHERE email=${email}`;
+  const existingUser = await sql`SELECT * FROM users WHERE email=${validatedFields.data.email}`;
   if (existingUser.length > 0) {
-    return { error: "Email already in use" };
+    return { 
+      formData: form,
+      error: "Email already in use" };
   }
-  const hashedPassword = await bcrypt.hash(password, 10);
+  const hashedPassword = await bcrypt.hash(validatedFields.data.password, 10);
 
+	
   await sql`
-    INSERT INTO users (email, password)
-    VALUES (${email}, ${hashedPassword})
-  `;
-  return { success: true, callbackUrl };
+  INSERT INTO users (email, password)
+  VALUES (${validatedFields.data.email}, ${hashedPassword})
+		`
+
+  redirect('/login');
 }
