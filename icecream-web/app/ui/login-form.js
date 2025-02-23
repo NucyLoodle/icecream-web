@@ -32,7 +32,7 @@ export default function LoginForm() {
                 })}
                 autoComplete="email"
             />
-            <ErrorMessage errors={errors} name="email" render={({ message }) => <p className="error">{message}</p>} />
+            <ErrorMessage errors={errors} name="email" render={({ message }) => <p className="lg-email-error">{message}</p>} />
             
 
 
@@ -45,7 +45,7 @@ export default function LoginForm() {
                         required: "Password is required.",
                     })}
             />
-            <ErrorMessage errors={errors} name="password" render={({ message }) => <p className="error">{message}</p>} />
+            <ErrorMessage errors={errors} name="password" render={({ message }) => <p className="lg-password-error">{message}</p>} />
             
             
             
