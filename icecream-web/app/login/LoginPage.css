@@ -109,6 +109,7 @@
     margin: 3px;
     height: 16px;
     cursor: pointer;
+    accent-color: #da8558;
 }
 
 .lg-email-error, .lg-password-error, #lg-error-message {
