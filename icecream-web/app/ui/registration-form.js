@@ -47,8 +47,10 @@ export function RegisterForm({action}) {
                             {...register("email")}
                             autoComplete="email"
                         />
-                        <InputError error={errors.email?.message} />
-                        <InputError error={actionState.fieldErrors?.email} />
+                        <p className="rg-email-error">
+                          <InputError error={errors.email?.message} />
+                          <InputError error={actionState.fieldErrors?.email} />
+                        </p>
 
                         {/* Password */}
                         <label htmlFor='rg-password'>Password:</label>
@@ -59,9 +61,10 @@ export function RegisterForm({action}) {
                             defaultValue={actionState.formData?.password}
                             {...register("password")}
                         />
-                         <InputError error={errors.password?.message} />
-                         <InputError error={actionState.fieldErrors?.password} />
-
+                        <p className="rg-password-error">
+                            <InputError error={errors.password?.message} />
+                            <InputError error={actionState.fieldErrors?.password} />
+                        </p>
                         {/* Confirm Password */}
                         <label htmlFor='rg-confirm-password'>Confirm Password:</label>
                         <input
@@ -71,11 +74,12 @@ export function RegisterForm({action}) {
                             defaultValue={actionState.formData?.confirmPassword}
                             {...register("confirmPassword", )}
                         />
-                        <InputError error={errors.confirmPassword?.message} />
-                        <InputError error={actionState.fieldErrors?.confirmPassword} />
-
+                        <p className="rg-confirm-password-error">
+                            <InputError error={errors.confirmPassword?.message} />
+                            <InputError error={actionState.fieldErrors?.confirmPassword} />
+                        </p>
                         {actionState.error && (
-                        <p className="error-message">{actionState.error}</p>
+                        <p className="rg-error-message">{actionState.error}</p>
                         )}
 
                         <button id='rg-submit-register-button' type="submit" data-testid="submit-button" disabled={isPending}>Register</button>

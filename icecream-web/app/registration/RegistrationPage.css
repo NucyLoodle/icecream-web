@@ -79,3 +79,8 @@
     margin-top: 10px;
 }
 
+.rg-email-error, .rg-password-error, .rg-confirm-passowrd-error, .rg-error-message {
+    color: #da8558;
+    font-size: 16px;
+}
+
