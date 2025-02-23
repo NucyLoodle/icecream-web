@@ -2,7 +2,7 @@
 import './RegistrationPage.css';
 import Link from 'next/link';
 import { RegisterForm } from '@/app/ui/registration-form';
-import { Suspense } from 'react';
+import { signUp } from "@/app/lib/actions";
 
 export default function RegistrationPage() {
 
@@ -17,9 +17,7 @@ export default function RegistrationPage() {
                     <button id='rg-register-button'>Register</button>
                 </div>
                 <div id='rg-registration-form-container'>
-                    <Suspense>
-                        <RegisterForm />
-                    </Suspense>
+                        <RegisterForm action= {signUp} />
                 </div>
             </div>
         </div>
