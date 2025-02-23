@@ -1,46 +1,54 @@
-import { ErrorMessage } from "@hookform/error-message";
-import { useActionState } from "react";
-import { useRouter, useSearchParams } from 'next/navigation';
+'use client'
+
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useActionState, useTransition } from "react";
 import { useForm } from 'react-hook-form';
-import { signUp } from "@/app/lib/actions";
+import { signUpFormSchema } from "@/app/lib/definitions";
 
-export function RegisterForm() {
-    const { register, watch, formState: { errors } } = useForm({ criteriaMode: "all" });
-    const router = useRouter();
-    const searchParams = useSearchParams();
-    const callbackUrl = searchParams.get("callbackUrl") || "/dashboard"; 
+export function RegisterForm({action}) {
+
+    const [actionState, submitAction, isPending] = useActionState(action, {});
+    const [, startTransition] = useTransition();
 
 
-    const [errorMessage, formAction, isPending] = useActionState(
-        async (prevState, formData) => {
-            formData.append("redirectTo", callbackUrl); 
-            const result = await signUp(formData);
-            if (result?.success) {
-                router.push(result.callbackUrl); 
-            }
-            return result?.error || null;
-        },
-        null
-    );
+    const InputError = ({ error }) => {
+        if (!error) return null;
+      
+        const errorMessage = Array.isArray(error) ? error[0] : error;
+      
+        return <p className="rg-error-message">{errorMessage}</p>;
+      };
+
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+      } = useForm({
+        resolver: zodResolver(signUpFormSchema),
+        mode: 'onChange',
+        defaultValues: actionState.formData,
+      });
+    
 
     return (
-        <form id='rg-registration-form' action={formAction}  noValidate>
+        <form id='rg-registration-form' action={submitAction} onSubmit={handleSubmit((_, e) => {
+            startTransition(() => {
+              const formData = new FormData(e?.target);
+              submitAction(formData);
+            });
+          })} noValidate>
                         {/* Email */}
                         <label htmlFor='rg-email'>Email:</label>
                         <input
                             id='rg-email'
                             type='email'
                             placeholder="someone@email.com"
-                            {...register("email", {
-                                required: "Email is required.",
-                                pattern: {
-                                    value: /^\S+@\S+$/i,
-                                    message: "Invalid email format."
-                                }
-                            })}
+                            defaultValue={actionState.formData?.email}
+                            {...register("email")}
                             autoComplete="email"
                         />
-                        <ErrorMessage errors={errors} name="email" render={({ message }) => <p className="rg-email-error">{message}</p>} />
+                        <InputError error={errors.email?.message} />
+                        <InputError error={actionState.fieldErrors?.email} />
 
                         {/* Password */}
                         <label htmlFor='rg-password'>Password:</label>
@@ -48,13 +56,11 @@ export function RegisterForm() {
                             id='rg-password'
                             type='password'
                             placeholder='Password'
-                            {...register("password", {
-                                required: "Password is required.",
-                                minLength: { value: 8, message: "Password must be at least 8 characters." },
-                                maxLength: { value: 20, message: "Password must not exceed 20 characters." }
-                            })}
+                            defaultValue={actionState.formData?.password}
+                            {...register("password")}
                         />
-                        <ErrorMessage errors={errors} name="password" render={({ message }) => <p className="rg-password-error">{message}</p>} />
+                         <InputError error={errors.password?.message} />
+                         <InputError error={actionState.fieldErrors?.password} />
 
                         {/* Confirm Password */}
                         <label htmlFor='rg-confirm-password'>Confirm Password:</label>
@@ -62,19 +68,18 @@ export function RegisterForm() {
                             id='rg-confirm-password'
                             type='password'
                             placeholder='Password'
-                            {...register("confirmPassword", {
-                                required: true,
-                                validate: (val) => {
-                                    if (watch('password') != val) {
-                                      return "Your passwords do not match.";
-                                    }
-                                  },  
-                            })}
+                            defaultValue={actionState.formData?.confirmPassword}
+                            {...register("confirmPassword", )}
                         />
-                        <ErrorMessage errors={errors} name="confirmPassword" render={({ message }) => <p className="rg-confirm-password-error">{message}</p>} />
+                        <InputError error={errors.confirmPassword?.message} />
+                        <InputError error={actionState.fieldErrors?.confirmPassword} />
 
-                        <button id='rg-submit-register-button' type="submit" data-testid="submit-button">Register</button>
-                        {errorMessage && <p className="rg-submit-register-form">{errorMessage}</p>}
+                        {actionState.error && (
+                        <p className="error-message">{actionState.error}</p>
+                        )}
+
+                        <button id='rg-submit-register-button' type="submit" data-testid="submit-button" disabled={isPending}>Register</button>
+                        {/* {errorMessage && <p className="rg-submit-register-form">{errorMessage}</p>} */}
                     </form>
     )
 }
