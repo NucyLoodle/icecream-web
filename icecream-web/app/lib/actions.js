@@ -26,9 +26,6 @@ export async function authenticate(prevState, formData) {
 }
 
 export async function signUp(_initialState, formData) {
-
-  console.log(formData.entries())
-
   const form = Object.fromEntries(formData);
   const validatedFields = signUpFormSchema.safeParse(form);
 
