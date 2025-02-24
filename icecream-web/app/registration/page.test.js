@@ -1,6 +1,11 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import RegistrationPage from './page';
 
+jest.mock("../lib/actions", () => ({
+    authenticate: jest.fn(),
+    signUp: jest.fn(),
+  }));
+
 describe("registration page component", () => {
     it("renders correctly", () => {
         render(<RegistrationPage />);
@@ -24,6 +29,6 @@ describe("registration page component", () => {
         fireEvent.click(submitButton);
     
         // Expect the error message to appear
-        expect(await screen.findByText(/Your passwords do not match./i)).toBeInTheDocument();
+        expect(await screen.findByText(/Passwords don't match/i)).toBeInTheDocument();
     });
 });

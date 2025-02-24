@@ -1,5 +1,4 @@
 import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom';
 import LoginPage from '@/app/login/page';
 
 jest.mock('../ui/login-form', () => () => <div data-testid="mock-login-form">Login Form</div>);
