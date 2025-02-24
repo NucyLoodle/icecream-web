@@ -18,13 +18,9 @@ body {
   flex-direction: column;
 }
   
-main {
+/* main {
   height:100vh;
-}
-
-
-
-
+} */
 
 /* body {
   color: var(--foreground);
