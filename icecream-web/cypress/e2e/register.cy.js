@@ -67,6 +67,78 @@ describe('registering a new user', () => {
 		cy.get('#rg-password').should('have.value', '123');
 	});
 
+	it('detects a password which does not contain a letter', () => {
+		cy.visit('/');
+
+		cy.get('#get-started-btn').click();
+		cy.location('pathname').should('include', 'login');
+
+		cy.get('#lg-register-button').click();
+		cy.location('pathname').should('include', 'registration');
+		cy.get('#rg-register-button').should('have.css', 'background-color', 'rgb(238, 224, 96)');
+
+		cy.get('#rg-email').type('test@test.com');
+		cy.get('#rg-submit-register-button').click();
+
+		cy.get('#rg-password').type('1234567899');
+
+		cy.get('.rg-password-error').should('exist');
+		cy.get('.rg-password-error').should('have.text', 'Contain at least one letter.');
+
+		cy.get('#rg-submit-register-button').click();
+		cy.location('pathname').should('include', 'registration');
+		cy.get('#rg-email').should('have.value', 'test@test.com');
+		cy.get('#rg-password').should('have.value', '1234567899');
+	});
+
+	it('detects a password which does not contain a number', () => {
+		cy.visit('/');
+
+		cy.get('#get-started-btn').click();
+		cy.location('pathname').should('include', 'login');
+
+		cy.get('#lg-register-button').click();
+		cy.location('pathname').should('include', 'registration');
+		cy.get('#rg-register-button').should('have.css', 'background-color', 'rgb(238, 224, 96)');
+
+		cy.get('#rg-email').type('test@test.com');
+		cy.get('#rg-submit-register-button').click();
+
+		cy.get('#rg-password').type('qwertyuio');
+
+		cy.get('.rg-password-error').should('exist');
+		cy.get('.rg-password-error').should('have.text', 'Contain at least one number.');
+
+		cy.get('#rg-submit-register-button').click();
+		cy.location('pathname').should('include', 'registration');
+		cy.get('#rg-email').should('have.value', 'test@test.com');
+		cy.get('#rg-password').should('have.value', 'qwertyuio');
+	});
+
+	it('detects a password which does not contain a special character', () => {
+		cy.visit('/');
+
+		cy.get('#get-started-btn').click();
+		cy.location('pathname').should('include', 'login');
+
+		cy.get('#lg-register-button').click();
+		cy.location('pathname').should('include', 'registration');
+		cy.get('#rg-register-button').should('have.css', 'background-color', 'rgb(238, 224, 96)');
+
+		cy.get('#rg-email').type('test@test.com');
+		cy.get('#rg-submit-register-button').click();
+
+		cy.get('#rg-password').type('qwertyuio2');
+
+		cy.get('.rg-password-error').should('exist');
+		cy.get('.rg-password-error').should('have.text', 'Contain at least one special character.');
+
+		cy.get('#rg-submit-register-button').click();
+		cy.location('pathname').should('include', 'registration');
+		cy.get('#rg-email').should('have.value', 'test@test.com');
+		cy.get('#rg-password').should('have.value', 'qwertyuio2');
+	});
+
 	it('detects that passwords do not match', () => {
 		cy.visit('/');
 
