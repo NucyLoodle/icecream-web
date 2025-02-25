@@ -1,18 +1,17 @@
-#db-dashboard-component{
+#db-dashboard-component {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 5%;
+    max-height: 80vh;
+
 }
-#db-content-container{
+#db-content-container {
     display: flex;
     flex-direction: column;
     background-color: #b8ecce;
     width: 80%; 
-    height: auto;
-    /* margin: 0 auto; */
+    margin-top: 20px;
     padding: 10px;
-    /* position: relative; */
     border-radius: 15px;
 }
 
@@ -32,16 +31,27 @@
     justify-content: space-between; 
     align-items: stretch; 
     width: 100%; 
-  }
+}
   
+#db-van-list,
+#db-map-container {
+  flex: 1;  
+  min-width: 0; 
+}
+
+#db-map-container {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+}
+
+@media screen and (max-width: 750px) {
+  #db-van-info-container {
+    flex-direction: column-reverse; 
+}
+
   #db-van-list,
   #db-map-container {
-    flex: 1;  
-    min-width: 0; 
+    width: 100%; 
   }
-  
-  #db-map-container {
-    display: flex;
-    justify-content: center; 
-    align-items: center; 
-  }
+}

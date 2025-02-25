@@ -21,7 +21,7 @@
 }
 
 #logo-container h1 {
-    font-size: 20px;
+    font-size: 1.3em;
     font-weight: bold;
     color: #3e1755; 
 }
@@ -29,8 +29,9 @@
 #get-started-btn {
     background-color: #b8ecce; 
     color: #3e1755; 
+    font-family: "Poppins", serif;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 0.9em;
     padding: 10px 20px;
     border: none;
     border-radius: 25px;
@@ -47,6 +48,18 @@
     padding: 10px 15px;
     border-radius: 10px;
     color: white;
-    font-size: 16px;
+    font-family: "Poppins", serif;
+    font-size: 0.9em;
     cursor: pointer;
+}
+
+@media screen and (max-width: 450px) {
+    #logo-container h1 {
+        font-size: 0.8em;
+    }
+
+    #get-started-btn, #header-sign-out-btn {
+        font-size: 0.6em;
+        padding: 5px 10px;
+    }
 }
